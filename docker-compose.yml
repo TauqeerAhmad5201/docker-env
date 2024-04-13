@@ -3,11 +3,11 @@ services:
     environment:
       - PORT:${PORT}
       - MESSAGE:${MESSAGE}
+    env_file:
+     - path: ./default.env
+       required: true # default
     build:
       context: ./node-app
-      args:
-        - PORT=${PORT}
     ports:
       - "3000:${PORT}"
-    env_file:
-      - ./.env
+     
