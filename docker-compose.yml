@@ -1,9 +1,12 @@
 services:
   web:
+    env_file:
+      - path: ./node-app/.env
+        required: true # default
     container_name: ${container_name}
     build:
       context: ./node-app
     ports:
       - "3000:${PORT}"
-     
-## Run this command  sudo docker-compose --env-file ./node-app/.env up --build
+      
+## You need to use .env file in folder where docker-compose.yaml is in order to declaring default environment variables for both docker-compose.yaml file and docker container. env_file section is used to put values into container only.
