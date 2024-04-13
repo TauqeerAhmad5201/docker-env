@@ -1,5 +1,8 @@
 services:
   web:
+    environment:
+      - PORT:${PORT}
+      - MESSAGE:${MESSAGE}
     build:
       context: ./node-app
       args:
@@ -7,4 +10,4 @@ services:
     ports:
       - "3000:${PORT}"
     env_file:
-      - ./node-app/.env
+      - ./.env
