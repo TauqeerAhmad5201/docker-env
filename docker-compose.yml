@@ -2,7 +2,7 @@ services:
   web:
     environment:
       - PORT:${PORT}
-      - MESSAGE:${MESSAGE}
+      - MESSAGE:`Hello`
     build:
       context: ./node-app
       args:
@@ -11,3 +11,5 @@ services:
       - "3000:${PORT}"
     env_file:
       - ./.env
+
+## Either environment: will be used or env_file and they are used put values to dockerfile for its container.
