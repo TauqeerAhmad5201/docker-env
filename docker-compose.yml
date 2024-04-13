@@ -1,13 +1,9 @@
 services:
   web:
-    environment:
-      - PORT:${PORT}
-      - MESSAGE:${MESSAGE}
-    env_file:
-     - path: ./default.env
-       required: true # default
+    container_name: ${container_name}
     build:
       context: ./node-app
     ports:
       - "3000:${PORT}"
      
+## Run this command  sudo docker-compose --env-file ./node-app/.env up --build
